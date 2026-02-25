@@ -146,9 +146,9 @@ mainContainer.addEventListener('click', function (event){
 
         countCalculation();
 
-        if (currentStatus === 'interview-filter-btn') {
+        if (currentStatus == 'interview-filter-btn') {
         renderInterview();
-        } else if (currentStatus === 'rejected-filter-btn') {
+        } else if (currentStatus == 'rejected-filter-btn') {
         renderRejected();
         }
     }
