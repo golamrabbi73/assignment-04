@@ -62,8 +62,7 @@ function toggleStyle(id){
 
 
 mainContainer.addEventListener('click', function (event){
-    const clickElement = event.target;
-    if(clickElement.classList.contains('interview-btn')){
+    if(event.target.classList.contains('interview-btn')){
         const parentNode = event.target.parentNode.parentNode;
 
         const companyName = parentNode.querySelector('.company-name').innerText;
@@ -132,6 +131,26 @@ mainContainer.addEventListener('click', function (event){
 
     countCalculation()
     
+    }else if(event.target.closest('.delete-btn')){
+        const deleteBttn = event.target.closest('.delete-btn');
+        const card = deleteBttn.closest('.card');
+        card.remove();
+
+        const companyName = card.querySelector('.company-name').innerText;
+
+        // Remove from interview list
+        interviewList = interviewList.filter(item => item.companyName !== companyName);
+
+        // Remove from rejected list
+        rejectedList = rejectedList.filter(item => item.companyName !== companyName);
+
+        countCalculation();
+
+        if (currentStatus === 'interview-filter-btn') {
+        renderInterview();
+        } else if (currentStatus === 'rejected-filter-btn') {
+        renderRejected();
+        }
     }
 
 })
