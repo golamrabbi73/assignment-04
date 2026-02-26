@@ -12,6 +12,7 @@ let rejectionCount = document.getElementById('rejection-count');
 const allFilterBtn = document.getElementById('all-filter-btn');
 const interviewFilterBtn = document.getElementById('interview-filter-btn');
 const rejectedFilterBtn = document.getElementById('rejected-filter-btn');
+const emptyState = document.getElementById('empty-state')
 
 const allCards = document.getElementById('all-cards');
 const mainContainer = document.querySelector('main');
@@ -50,6 +51,11 @@ function toggleStyle(id){
         allCards.classList.add('hidden');
         filterSection.classList.remove('hidden');
         renderInterview()
+        if(interviewList.length<1){
+            emptyState.classList.remove('hidden')
+        }else{
+            emptyState.classList.add('hidden')
+        }
     }else if(id == 'all-filter-btn'){
         allCards.classList.remove('hidden');
         filterSection.classList.add('hidden');
@@ -57,6 +63,11 @@ function toggleStyle(id){
         allCards.classList.add('hidden');
         filterSection.classList.remove('hidden');
         renderRejected()
+        if(rejectedList.length<1){
+            emptyState.classList.remove('hidden')
+        }else{
+            emptyState.classList.add('hidden')
+        }
     }
 }
 
@@ -72,6 +83,7 @@ mainContainer.addEventListener('click', function (event){
         const status = parentNode.querySelector('.job-status').innerText;
         const description = parentNode.querySelector('.description').innerText;
 
+        parentNode.remove()
         parentNode.querySelector('.job-status').innerText = 'Interviewed'
 
         const cardInfo = {
@@ -139,17 +151,17 @@ mainContainer.addEventListener('click', function (event){
         const companyName = card.querySelector('.company-name').innerText;
 
         // Remove from interview list
-        interviewList = interviewList.filter(item => item.companyName !== companyName);
+        interviewList = interviewList.filter(item => item.companyName != companyName);
 
         // Remove from rejected list
-        rejectedList = rejectedList.filter(item => item.companyName !== companyName);
+        rejectedList = rejectedList.filter(item => item.companyName != companyName);
 
         countCalculation();
 
         if (currentStatus == 'interview-filter-btn') {
-        renderInterview();
+            renderInterview();
         } else if (currentStatus == 'rejected-filter-btn') {
-        renderRejected();
+            renderRejected();
         }
     }
 
