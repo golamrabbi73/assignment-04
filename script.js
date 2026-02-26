@@ -215,16 +215,16 @@ function renderInterview(){
                     <div class="flex justify-between">
                         <div>
                             <h2 class="company-name font-bold text-2xl mb-1">${interview.companyName}</h2>
-                            <p class="position text-gray-500">React Native Developer</p>
+                            <p class="position text-gray-500">${interview.positionName}</p>
                         </div>
                         <button class=" delete-btn btn btn-circle"><i class="fa-solid fa-trash"></i></button>
                     </div>
                     <div class="my-5">
-                        <p class="job-info text-gray-500 text-[15px]">Remote • Full-time • $130,000 - $175,000</p>
+                        <p class="job-info text-gray-500 text-[15px]">${interview.jobInfo}</p>
                     </div>
                     <div class="mb-5">
                         <p class="job-status w-30  bg-blue-50 text-gray-800 px-3 py-2 rounded text-[14px] font-medium uppercase mb-1">${interview.status}</p>
-                        <p class="description text-gray-700 text-[15px]">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                        <p class="description text-gray-700 text-[15px]">${interview.description}</p>
                     </div>
                     <div>
                         <button class="btn interview-btn  btn-outline btn-success uppercase mr-2">Interview</button>
@@ -249,16 +249,16 @@ function renderRejected(){
                     <div class="flex justify-between">
                         <div>
                             <h2 class="company-name font-bold text-2xl mb-1">${rejected.companyName}</h2>
-                            <p class="position text-gray-500">React Native Developer</p>
+                            <p class="position text-gray-500">${rejected.positionName}</p>
                         </div>
                         <button class=" delete-btn btn btn-circle"><i class="fa-solid fa-trash"></i></button>
                     </div>
                     <div class="my-5">
-                        <p class="job-info text-gray-500 text-[15px]">Remote • Full-time • $130,000 - $175,000</p>
+                        <p class="job-info text-gray-500 text-[15px]">${rejected.jobInfo}</p>
                     </div>
                     <div class="mb-5">
                         <p class="job-status w-30  bg-blue-50 text-gray-800 px-3 py-2 rounded text-[14px] font-medium uppercase mb-1">${rejected.status}</p>
-                        <p class="description text-gray-700 text-[15px]">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                        <p class="description text-gray-700 text-[15px]">${rejected.description}</p>
                     </div>
                     <div>
                         <button class="btn interview-btn  btn-outline btn-success uppercase mr-2">Interview</button>
